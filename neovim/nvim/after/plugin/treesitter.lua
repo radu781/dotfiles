@@ -10,7 +10,7 @@ require'nvim-treesitter.configs'.setup {
   auto_install = true,
 
   -- List of parsers to ignore installing (or "all")
-  ignore_install = {},
+  ignore_install = { "html", "toml", "markdown", "json"},
 
   ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
   -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
@@ -22,7 +22,7 @@ require'nvim-treesitter.configs'.setup {
     -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
     -- the name of the parser)
     -- list of language that will be disabled
-    disable = {},
+    disable = { "toml", "html", "markdown", "json" },
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
@@ -32,3 +32,7 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+-- https://stackoverflow.com/questions/74225678/why-neovim-plug-treesitter-dont-work-on-windows
+if vim.loop.os_uname().sysname == "Windows_NT" then
+    require('nvim-treesitter.install').compilers = { "clang" }
+end

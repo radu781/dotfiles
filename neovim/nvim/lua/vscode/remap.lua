@@ -262,9 +262,9 @@ vim.keymap.set({ 'n', 'v' }, "<leader> ", workbench.showCommands)
 vim.keymap.set({ 'n', 'v' }, "H", workbench.previousEditor)
 vim.keymap.set({ 'n', 'v' }, "L", workbench.nextEditor)
 
-vim.keymap.set({ 'n' }, "<leader>el", errors.list)
-vim.keymap.set({ 'n' }, "<leader>en", errors.next)
-vim.keymap.set({ 'n' }, "<leader>ep", errors.previous)
+vim.keymap.set({ 'n' }, "<leader>el", errors.list, { desc = "diagnostics list"})
+vim.keymap.set({ 'n' }, "<leader>en", errors.next, { desc = "next diagnostic"})
+vim.keymap.set({ 'n' }, "<leader>ep", errors.previous, { desc = "previous diagnostic"})
 
 vim.keymap.set({ 'n' }, "<leader>gb", git.switch)
 vim.keymap.set({ 'n' }, "<leader>gi", git.init)

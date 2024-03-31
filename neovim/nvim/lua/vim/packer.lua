@@ -112,4 +112,5 @@ return require('packer').startup(function(use)
     use {
         "nvim-neotest/nvim-nio"
     }
+    use "sindrets/diffview.nvim"
 end)
