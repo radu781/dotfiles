@@ -18,22 +18,6 @@ nv_keymap('<leader>a', '%')
 nx_keymap('j', 'gj')
 nx_keymap('k', 'gk')
 
--- J doesn't move cursor
-vim.keymap.set("n", "J", "mzJ`z")
-
--- center screen after C-d/u
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-
--- center screenafter find
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-
--- yank into system clipboard
-vim.keymap.set("v", "<leader>y", "\"*y")
-vim.keymap.set("v", "<leader>Y", "\"*Y")
-vim.keymap.set("n", "<leader>Y", "\"*yy")
-
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.relativenumber = true

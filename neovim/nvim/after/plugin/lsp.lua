@@ -13,7 +13,8 @@ lsp_zero.on_attach(function(client, bufnr)
 
     vim.keymap.set('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     vim.keymap.set('n', '<leader>vrn', function() vim.lsp.buf.rename() end, opts, { desc = "rename symbol" })
-    vim.keymap.set('n', '<leader>fr', function() vim.lsp.buf.format() end, opts, { desc = "file format" })
+    -- use conform instead
+    -- vim.keymap.set('n', '<leader>fr', function() vim.lsp.buf.format() end, opts, { desc = "file format" })
 
     require("lsp_signature").on_attach({}, bufnr)
 end)
@@ -29,41 +30,46 @@ require('mason-lspconfig').setup({
     },
 })
 
+require("lspconfig").dartls.setup({
+    -- path to flutter sdk
+    cmd = { "C:\\Users\\Radu\\Documents\\flutter\\bin\\cache\\dart-sdk\\bin\\dart.exe", "language-server", "--protocol=lsp" }
+})
+
 local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " ", Other = "󰼈 " }
 for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-local icons = {
-    Class = " ",
-    Color = " ",
-    Constant = " ",
-    Constructor = " ",
-    Enum = " ",
-    EnumMember = " ",
-    Field = "󰄶 ",
-    File = " ",
-    Folder = " ",
-    Function = " ",
-    Interface = "󰜰",
-    Keyword = "󰌆 ",
-    Method = "ƒ ",
-    Module = "󰏗 ",
-    Property = " ",
-    Snippet = "󰘍 ",
-    Struct = " ",
-    Text = " ",
-    Unit = " ",
-    Value = "󰎠 ",
-    Variable = " ",
-}
+-- local icons = {
+--     Class = " ",
+--     Color = " ",
+--     Constant = " ",
+--     Constructor = " ",
+--     Enum = " ",
+--     EnumMember = " ",
+--     Field = "󰄶 ",
+--     File = " ",
+--     Folder = " ",
+--     Function = " ",
+--     Interface = "󰜰",
+--     Keyword = "󰌆 ",
+--     Method = "ƒ ",
+--     Module = "󰏗 ",
+--     Property = " ",
+--     Snippet = "󰘍 ",
+--     Struct = " ",
+--     Text = " ",
+--     Unit = " ",
+--     Value = "󰎠 ",
+--     Variable = " ",
+-- }
 
 
-local kinds = vim.lsp.protocol.CompletionItemKind
-for i, kind in ipairs(kinds) do
-    kinds[i] = icons[kind] or kind
-end
+-- local kinds = vim.lsp.protocol.CompletionItemKind
+-- for i, kind in ipairs(kinds) do
+--     kinds[i] = icons[kind] or kind
+-- end
 
 vim.diagnostic.config({
     virtual_text = true,

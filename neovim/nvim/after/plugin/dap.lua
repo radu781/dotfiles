@@ -15,7 +15,7 @@ end
 vim.keymap.set("n", "<leader>dt", ':DapToggleBreakpoint<cr>')
 vim.keymap.set("n", "<leader>dx", ':DapTerminate<cr>')
 vim.keymap.set("n", "<leader>do", ':DapStepOver<cr>')
-vim.keymap.set("n", "<leader>do", ':DapStepOver<cr>')
+vim.keymap.set("n", "<leader>dO", ':DapStepOut<cr>')
 
 require("dap-python").setup("~/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
 
@@ -30,6 +30,13 @@ dap.configurations.python = {
         end,
     },
 }
+-- dap.adapters.codelldb = {
+--     type = "executable",
+--     command = "C:\\Users\\Radu\\AppData\\Local\\nvim-data\\mason\\packages\\codelldb\\extension\\adapter\\codelldb.exe",
+--     name = "lldb",
+-- }
+
+
 
 dap.adapters.codelldb = {
     type = "server",

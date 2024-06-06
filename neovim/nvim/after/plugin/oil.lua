@@ -121,7 +121,7 @@ oil.setup({
         -- Height dimensions can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
         -- min_height and max_height can be a single value or a list of mixed integer/float types.
         -- max_height = {80, 0.9} means "the lesser of 80 columns or 90% of total"
-        max_height = { 30, 0.3 },
+        max_height = {30, 0.3},
         -- min_height = {5, 0.1} means "the greater of 5 columns or 10% of total"
         min_height = { 5, 0.1 },
         -- optionally define an integer/float for the exact height of the preview window
@@ -149,5 +149,5 @@ oil.setup({
     },
 })
 
-vim.keymap.set('n', '<leader>ft', '<cmd>Oil<cr>', opts, { desc = "open file tree" })
-vim.keymap.set('n', '<leader>fe', function() oil.open_float() end, opts, { desc = "open [f]ile [t]ree with Oil" })
+vim.keymap.set('n', '<leader>ft', '<cmd>Oil<cr>', { desc = "open file tree" })
+vim.keymap.set('n', '<leader>fe', function() oil.open_float() end, { desc = "open file tree float" })
