@@ -129,7 +129,6 @@ return require("packer").startup(function(use)
 	use("stevearc/conform.nvim")
 	use("onsails/lspkind.nvim")
 	use("michaelrommel/nvim-silicon")
-	use("wakatime/vim-wakatime")
 	use("folke/todo-comments.nvim")
 	use({
 		"iamcco/markdown-preview.nvim",

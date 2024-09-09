@@ -4,6 +4,7 @@ conform.setup({
 		lua = { "stylua" },
 		-- Conform will run multiple formatters sequentially
 		python = { "isort", "black" },
+		cpp = { "clang-format" },
 		-- Use a sub-list to run only the first available formatter
 		-- javascript = { { "prettierd", "prettier" } },
 		rust = { "rustfmt" },
@@ -11,7 +12,7 @@ conform.setup({
 	},
 })
 
-vim.keymap.set("n", "<leader>fr", function()
+vim.keymap.set({"n", "v"}, "<leader>fr", function()
 	local success = conform.format()
 	local fidget = require("fidget")
 	if success then

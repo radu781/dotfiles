@@ -93,7 +93,7 @@ wk.register({
     d = { name = "DAP" },
     e = { name = "errors" },
     f = { name = "files", g = "+grep", s = "symbols" },
-    g = { name = "git/go to" },
+    g = { name = "git/go to", D = "diffview" },
     i = { name = "inlay hints" },
     q = { name = "quick fix list" },
     ["="] = { name = "format" },

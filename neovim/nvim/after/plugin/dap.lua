@@ -16,8 +16,10 @@ vim.keymap.set("n", "<leader>dt", ':DapToggleBreakpoint<cr>')
 vim.keymap.set("n", "<leader>dx", ':DapTerminate<cr>')
 vim.keymap.set("n", "<leader>do", ':DapStepOver<cr>')
 vim.keymap.set("n", "<leader>dO", ':DapStepOut<cr>')
+vim.keymap.set("n", "<leader>dc", ':DapContinue<cr>')
 
 require("dap-python").setup("~/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
+-- require("dap-python").setup("/Users/radu.popa/repos/turbo-connect-core/venv/bin/python")
 
 dap.configurations.python = {
     {
@@ -26,23 +28,24 @@ dap.configurations.python = {
         name = "Launch file",
         program = "${file}",
         pythonPath = function()
-            return '/usr/bin/python'
+            return '/Users/radu.popa/repos/turbo-connect-core/venv/bin/python'
         end,
     },
 }
--- dap.adapters.codelldb = {
---     type = "executable",
---     command = "C:\\Users\\Radu\\AppData\\Local\\nvim-data\\mason\\packages\\codelldb\\extension\\adapter\\codelldb.exe",
---     name = "lldb",
--- }
-
-
 
 dap.adapters.codelldb = {
     type = "server",
     port = "${port}",
+    host = "127.0.0.1",
     executable = {
-        command = "C:\\Users\\Radu\\AppData\\Local\\nvim-data\\mason\\packages\\codelldb\\extension\\adapter\\codelldb.exe",
+        -- command = "C:\\Users\\Radu\\AppData\\Local\\nvim-data\\mason\\packages\\codelldb\\extension\\adapter\\codelldb.exe",
+        -- command = "/opt/homebrew/opt/llvm/bin/lldb",
+        -- command = "lldb",
+        -- command = "/Users/radu.popa/Downloads/codelldb-aarch64-darwin/extension/lldb/bin/lldb",
+        -- command = "lldb",
+        command = '/Users/radu.popa/.local/share/nvim/mason/packages/codelldb/codelldb',
+        -- command = "/Users/radu.popa/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb",
+        -- command = "/Users/radu.popa/Downloads/codelldb-aarch64-darwin/extension/adapter/codelldb",
         args = { "--port", "${port}" },
     }
 }
