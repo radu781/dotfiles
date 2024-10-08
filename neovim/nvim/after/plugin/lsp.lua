@@ -9,7 +9,8 @@ lsp_zero.on_attach(function(client, bufnr)
     -- TODO: seems broken
     vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, opts, { desc = "go to implementation" })
 
-    vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts, { desc = "code action" })
+    -- vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts, { desc = "code action" })
+    vim.keymap.set("n", "<leader>ca", function() require("tiny-code-action").code_action() end, { noremap=true,silent=true,desc = "code action" })
 
     vim.keymap.set('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     vim.keymap.set('n', '<leader>vrn', function() vim.lsp.buf.rename() end, opts, { desc = "rename symbol" })

@@ -8,11 +8,12 @@ conform.setup({
 		-- Use a sub-list to run only the first available formatter
 		-- javascript = { { "prettierd", "prettier" } },
 		rust = { "rustfmt" },
-        dart = { "dart format" },
+		cpp = { "clang-format" },
+		dart = { "dart format" },
 	},
 })
 
-vim.keymap.set({"n", "v"}, "<leader>fr", function()
+vim.keymap.set({ "n", "v" }, "<leader>fr", function()
 	local success = conform.format()
 	local fidget = require("fidget")
 	if success then
@@ -20,4 +21,4 @@ vim.keymap.set({"n", "v"}, "<leader>fr", function()
 	else
 		fidget.notify("File format failed", vim.log.levels.ERROR, { annote = "File format failed" })
 	end
-end, { desc = "format file" })
+end, { desc = "format" })

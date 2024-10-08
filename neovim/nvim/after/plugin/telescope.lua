@@ -8,7 +8,7 @@ vim.keymap.set('n', '<leader>fsw', builtin.lsp_workspace_symbols, { desc = "find
 vim.keymap.set('n', '<leader>fgg', builtin.live_grep, { desc = "grep in git workspace" })
 vim.keymap.set('n', '<leader>fgw', builtin.grep_string, { desc = "grep in workspace" })
 
-vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = "git commits with diff" })
-vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = "git branches" })
-vim.keymap.set('n', '<leader>gs', builtin.git_commits, { desc = "git status" })
+vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = "commits with diff" })
+vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = "branches" })
+vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = "status" })
 -- vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = "list git commits with diff" })

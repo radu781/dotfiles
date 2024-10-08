@@ -149,5 +149,5 @@ oil.setup({
     },
 })
 
-vim.keymap.set('n', '<leader>ft', '<cmd>Oil<cr>', { desc = "open file tree" })
-vim.keymap.set('n', '<leader>fe', function() oil.open_float() end, { desc = "open file tree float" })
+vim.keymap.set('n', '<leader>ft', '<cmd>Oil<cr>', { desc = "file tree" })
+vim.keymap.set('n', '<leader>fe', function() oil.open_float() end, { desc = "file tree float" })

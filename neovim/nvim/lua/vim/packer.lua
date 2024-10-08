@@ -37,7 +37,7 @@ return require("packer").startup(function(use)
 			{ "nvim-tree/nvim-web-devicons" },
 		},
 	})
-    use({"nvim-tree/nvim-web-devicons"})
+	use({ "nvim-tree/nvim-web-devicons" })
 	use({ "tpope/vim-fugitive" })
 	use({ "lewis6991/gitsigns.nvim" })
 	use({
@@ -136,5 +136,21 @@ return require("packer").startup(function(use)
 			vim.fn["mkdp#util#install"]()
 		end,
 	})
-	use 'simnalamburt/vim-mundo'
+	use("simnalamburt/vim-mundo")
+	use({
+		"Jezda1337/nvim-html-css",
+		requires = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-lua/plenary.nvim",
+		},
+	})
+    use({
+        "OXY2DEV/markview.nvim",
+        requires = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons"
+        }
+    })
+    use("shellRaining/hlchunk.nvim")
+    use("rachartier/tiny-code-action.nvim")
 end)
